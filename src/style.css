@@ -43,10 +43,9 @@ form {
     margin-bottom: 10px;
 }
 
-.error {
+.message {
     text-align: center;
     margin: 5px 0;
-    color: red;
     font-size: 14px;
 }
 

@@ -123,8 +123,8 @@ class ToDoListView {
     }
 
     addNote(object) {
-        const $error = document.querySelector('#todo__form .error');
-        $error.innerHTML = '';
+        const $message = document.querySelector('#todo__form .message');
+        $message.innerHTML = '';
         const $item = document.createElement('li');
         $item.classList.add('todo__item');
         $item.dataset.id = object._id;
@@ -139,8 +139,8 @@ class ToDoListView {
     }
 
     updateNote(id, text) {
-        const $error = document.querySelector('#todo__form_edit .error');
-        $error.innerHTML = '';
+        const $message = document.querySelector('#todo__form_edit .message');
+        $message.innerHTML = '';
         this.list.querySelector(`[data-id='${id}'] .todo__content`).textContent = text;
     }
 
@@ -148,7 +148,7 @@ class ToDoListView {
         const currentValue = this.list.querySelector(`[data-id='${id}'] .todo__content`).textContent;
         const template = `<form id="todo__form_edit" data-id="${id}">
         <input type="text" name="text" value="${currentValue}" class="input" required>
-        <div class="error"></div>
+        <div class="message"></div>
         <input type="submit" value="Edit item" class="button todo__button">
         </form> `;
         this.showPopUp(template);
@@ -166,9 +166,9 @@ class ToDoListView {
         this.showPopUp(content);
     }
 
-    showError = (form, message) => {
-        const $errorBlock = form.querySelector('.error');
-        $errorBlock.innerHTML = message;
+    showMessage = (form, message) => {
+        const $messageBlock = form.querySelector('.message');
+        $messageBlock.innerHTML = message;
     }
 
     showPopUp(content) {
@@ -228,7 +228,7 @@ class ToDoListControler {
                     this.view.addNote(note);
                     e.target.reset();
                 } else {
-                    this.view.showError(this.createForm, 'Please enter unique value');
+                    this.view.showMessage(this.createForm, 'Please enter unique value');
                 }
             }
         });
@@ -247,8 +247,9 @@ class ToDoListControler {
                 if (await this.model.isUnique(text)) {
                     this.model.updateNote(id, text );
                     this.view.updateNote(id, text);
+                    this.view.showMessage(updateForm, 'Your note has been updated');
                 } else {
-                    this.view.showError(updateForm, 'Please enter unique value');
+                    this.view.showMessage(updateForm, 'Please enter unique value');
                 }
             }
         });
