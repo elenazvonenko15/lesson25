@@ -205,7 +205,7 @@ class ToDoListControler {
             e.preventDefault();
 
             const formData = new FormData(e.target);
-            const [login, password] = [...formData.values()];
+            const [ login, password ] = [...formData.values()];
 
             if (login.trim() && password.trim()) {
                 await this.model.auth(login, password);
@@ -220,7 +220,7 @@ class ToDoListControler {
             e.preventDefault();
 
             const formData = new FormData(e.target);
-            const [text] = [...formData.values()];
+            const [ text ] = [...formData.values()];
 
             if (text.trim()) {
                 if ( await this.model.isUnique(text)) {
@@ -240,7 +240,7 @@ class ToDoListControler {
             e.preventDefault();
 
             const formData = new FormData(e.target);
-            const [text] = [...formData.values()];
+            const [ text ] = [...formData.values()];
             const { id } = e.target.dataset;
 
             if (text.trim()) {
