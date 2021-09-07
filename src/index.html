@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hillel home work</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        
+
+        <div class="todo">
+            <div class="header todo__header">
+                <div class="title">
+                    Your To Do List
+                </div>
+            </div>
+            <div class="todo__body">
+                <form id="todo__form">
+                    <input type="text" name="text" placeholder="Text" class="input" required>
+                    <div class="error"></div>
+                    <input type="submit" value="Add new item" class="button todo__button">
+                </form>
+                <ul class="todo__list">
+                </ul>
+                <div class="button todo__button button_statistic">Get statistic <i class="far fa-chart-bar"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="popup">
+            <i class="fas fa-times popup__close"></i>
+            <div class="popup__content">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/74250e33ee.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
